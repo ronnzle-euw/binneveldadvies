@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binneveld Advies | Geo-informatie, GIS en Data</title>
+    <meta name="description" content="Zelfstandig Geo/GIS-adviseur. Ron Binneveld ondersteunt gemeenten bij GIS, basisregistraties, geo-architectuur en geo-data.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --blue: #afc5f3;
+            --green: #b9e8b4;
+            --red: #e7aaa5;
+            --grey: #d8d8d8;
+
+            --blue-accent: #88AEEF;
+            --green-accent: #9ADE95;
+            --red-accent: #D56A63;
+            --grey-accent: #AFAFAF;
+
+            --text: #2F3A45;
+            --text-muted: #5a6570;
+            --footer: #2F3A45;
+            --white: #ffffff;
+
+            --radius: 12px;
+            --shadow: 0 8px 30px rgba(47, 58, 69, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Plus Jakarta Sans", "Segoe UI", Arial, sans-serif;
+            color: var(--text);
+            line-height: 1.75;
+            background: white;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        section,
+        header {
+            padding: 90px 0;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: clamp(1.6rem, 3vw, 2rem);
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        h3 {
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--red-accent);
+            margin-bottom: 8px;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            height: 55px;
+            width: auto;
+        }
+
+        .logo span {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--red-accent);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text);
+            padding: 4px 8px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--blue) 0%, #d4e2fb 100%);
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 25px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .hero-photo {
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-photo img {
+            width: 100%;
+            max-width: 340px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            object-fit: cover;
+            aspect-ratio: 4/5;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--red-accent);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 10px;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 14px rgba(213, 106, 99, 0.35);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(213, 106, 99, 0.45);
+        }
+
+        .bg-grey {
+            background: #f4f4f4;
+        }
+
+        .bg-green {
+            background: linear-gradient(180deg, var(--green) 0%, #d4f5d0 100%);
+        }
+
+        .bg-red {
+            background: linear-gradient(180deg, var(--red) 0%, #f5d4d1 100%);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .about-highlight {
+            background: white;
+            padding: 28px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .about-highlight .stat {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--red-accent);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .about-highlight p {
+            margin-bottom: 0;
+            color: var(--text-muted);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 32px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            border-left: 4px solid var(--blue-accent);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(47, 58, 69, 0.12);
+        }
+
+        .card-green {
+            border-left-color: var(--green-accent);
+        }
+
+        .card-red {
+            border-left-color: var(--red-accent);
+        }
+
+        .card-grey {
+            border-left-color: var(--grey-accent);
+        }
+
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .usp {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: transform 0.25s ease;
+        }
+
+        .usp:hover {
+            transform: translateY(-3px);
+        }
+
+        .usp h3 {
+            color: var(--red-accent);
+        }
+
+        .visie-quote {
+            font-size: 1.15rem;
+            font-weight: 500;
+            border-left: 4px solid var(--red-accent);
+            padding-left: 24px;
+            margin: 30px 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        form {
+            margin-top: 10px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--blue-accent);
+            box-shadow: 0 0 0 3px rgba(136, 174, 239, 0.25);
+        }
+
+        button[type="submit"] {
+            background: var(--red-accent);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 14px 28px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: inherit;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        button[type="submit"]:hover {
+            transform: translateY(-2px);
+            opacity: 0.95;
+        }
+
+        .contact-details {
+            background: white;
+            padding: 32px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-details h3 {
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 1.05rem;
+        }
+
+        .contact-item a {
+            color: var(--red-accent);
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: var(--footer);
+            color: white;
+            text-align: center;
+            padding: 40px;
+            border-top: 4px solid var(--red-accent);
+        }
+
+        @media (max-width: 900px) {
+            section,
+            header {
+                padding: 60px 0;
+            }
+
+            .hero,
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-photo {
+                order: -1;
+            }
+
+            .hero-photo img {
+                max-width: 280px;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                gap: 16px;
+                border-bottom: 1px solid #e5e7eb;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav .container {
+                position: relative;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container nav-wrapper">
+        <div class="logo">
+            <img src="images/logo.png" alt="Binneveld Advies logo">
+            <span>Binneveld Advies</span>
+        </div>
+
+        <button class="menu-toggle" aria-label="Menu openen" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+            ☰
+        </button>
+
+        <div class="nav-links">
+            <a href="#over">Over</a>
+            <a href="#expertise">Expertise</a>
+            <a href="#onderscheid">Waarom ik</a>
+            <a href="#visie">Visie</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<header>
+    <div class="container hero">
+        <div>
+            <h1>Geo-informatie, GIS en Data in verbinding</h1>
+
+            <p class="subtitle">
+                Zelfstandig Geo/GIS-adviseur met ruime gemeentelijke ervaring
+            </p>
+
+            <p>
+                Ik ondersteun gemeenten en overheidsorganisaties bij het ontwikkelen,
+                beheren en doorontwikkelen van moderne GIS-omgevingen en
+                geo-informatievoorzieningen.
+            </p>
+
+            <p>
+                Van basisregistraties en GIS-viewers tot geo-architectuur,
+                geo-data en de integratie van het geo-domein binnen moderne
+                dataorganisaties.
+            </p>
+
+            <a href="#contact" class="btn">Neem contact op</a>
+        </div>
+
+        <div class="hero-photo">
+            <img src="images/ron-binneveld.jpg" alt="Ron Binneveld — Geo/GIS-adviseur">
+        </div>
+    </div>
+</header>
+
+<section id="over" class="bg-grey">
+    <div class="container about-grid">
+        <div>
+            <p class="section-label">Over mij</p>
+            <h2>Over Binneveld Advies</h2>
+
+            <p>
+                Binneveld Advies is de zelfstandige adviespraktijk van Ron Binneveld.
+            </p>
+
+            <p>
+                Met bijna twintig jaar ervaring binnen het geo-domein ondersteun ik
+                gemeenten bij het optimaal benutten van geo-informatie, GIS-oplossingen
+                en datagedreven informatievoorziening.
+            </p>
+
+            <p>
+                Mijn ervaring strekt zich uit over zowel de leveranciers- als
+                opdrachtgeverskant. Zo werkte ik tien jaar als consultant bij
+                NedGraphics (tegenwoordig Cadac Group), waar ik betrokken was bij de opbouw
+                van de BGT, BGT-implementaties, BGT-BAG- en BGT-BOR-koppelingen,
+                geo-oplossingen en CAD-beheer voor gemeenten.
+            </p>
+
+            <p>
+                Daarnaast ben ik actief als Data-analist en GIS-specialist bij
+                gemeente Vijfheerenlanden, waar ik zes jaar in de rol van adviseur Geo/GIS
+                werkzaam was. Hierdoor beschik ik over actuele kennis van gemeentelijke
+                processen, basisregistraties, de geo-markt — van softwareleveranciers tot
+                dienstverlenende organisaties — het geo-domein en moderne dataplatformen
+                als Microsoft Fabric.
+            </p>
+        </div>
+
+        <aside class="about-highlight">
+            <div class="stat">~20</div>
+            <p>jaar ervaring in het geo-domein</p>
+        </aside>
+    </div>
+</section>
+
+<section id="expertise" class="bg-green">
+    <div class="container">
+        <p class="section-label">Wat ik doe</p>
+        <h2>Expertise</h2>
+
+        <div class="cards">
+            <div class="card card-blue">
+                <h3>GIS-omgevingen</h3>
+                <p>
+                    Ontwikkeling en doorontwikkeling van GIS-viewers,
+                    geo-portalen, functioneel beheer en het ontsluiten van
+                    geo-informatie binnen de organisatie.
+                </p>
+            </div>
+
+            <div class="card card-green">
+                <h3>Geo-architectuur</h3>
+                <p>
+                    Inrichting van geo-landschappen met GeoServer en
+                    PostgreSQL/PostGIS, ETL-processen op basis van
+                    OGC-standaarden en API-koppelingen.
+                </p>
+            </div>
+
+            <div class="card card-red">
+                <h3>Basisregistraties</h3>
+                <p>
+                    Ruime ervaring met geo-basisregistraties en veelgebruikte
+                    registraties binnen de gemeente, waaronder BGT, BAG, BRK,
+                    WOZ, BOR, KLIC en NHR — inclusief de processen die daarbij horen.
+                </p>
+            </div>
+
+            <div class="card card-grey">
+                <h3>Geo &amp; Data</h3>
+                <p>
+                    Integratie van geo-data binnen moderne dataplatformen
+                    als Microsoft Fabric.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="onderscheid" class="bg-grey">
+    <div class="container">
+        <p class="section-label">Mijn aanpak</p>
+        <h2>Wat mij onderscheidt</h2>
+
+        <div class="usp-grid">
+            <div class="usp">
+                <h3>Gemeente én leverancier</h3>
+                <p>
+                    Tien jaar ervaring als consultant bij NedGraphics/Cadac Group
+                    gecombineerd met jarenlange praktijkervaring binnen
+                    gemeentelijke organisaties, waaronder gemeente Vijfheerenlanden.
+                </p>
+            </div>
+
+            <div class="usp">
+                <h3>Actuele praktijkervaring</h3>
+                <p>
+                    Nog dagelijks actief als Data-analist en GIS-specialist
+                    binnen gemeente Vijfheerenlanden.
+                </p>
+            </div>
+
+            <div class="usp">
+                <h3>Verbinder tussen Geo en Data</h3>
+                <p>
+                    Ervaring met het verbinden van traditionele GIS-omgevingen
+                    met moderne dataorganisaties en dataplatformen.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="visie" class="bg-red">
+    <div class="container">
+        <p class="section-label">Toekomstgericht</p>
+        <h2>Visie</h2>
+
+        <p class="visie-quote">
+            Binnen veel organisaties is het geo-domein nog een op zichzelf staande
+            discipline — waardevol, maar vaak onderbelicht en los van de bredere
+            data-organisatie.
+        </p>
+
+        <p>
+            Mijn visie is om geo geen eiland te laten zijn, maar een volwaardig
+            onderdeel van het datateam — een team dat in steeds meer organisaties
+            al een vaste plek heeft en bekend staat.
+        </p>
+
+        <p>
+            Door de krachten te bundelen van data engineers, data-analisten en
+            GIS-specialisten ontstaat een geo-informatievoorziening waarin
+            basisregistraties, geo-services, dashboards en dataplatformen
+            elkaar versterken. Niet alleen door technologie, maar door mensen
+            en disciplines met elkaar te verbinden.
+        </p>
+    </div>
+</section>
+
+<section id="contact" class="bg-grey">
+    <div class="container">
+        <p class="section-label">Laten we kennismaken</p>
+        <h2>Contact</h2>
+
+        <p>Benieuwd wat ik voor uw organisatie kan betekenen?</p>
+
+        <div class="contact-grid">
+            <form action="mailto:ron@binneveldadvies.nl" method="post" enctype="text/plain">
+                <input type="text" name="naam" placeholder="Naam" required>
+                <input type="email" name="email" placeholder="E-mailadres" required>
+                <input type="text" name="organisatie" placeholder="Organisatie">
+                <textarea name="bericht" rows="6" placeholder="Bericht" required></textarea>
+                <button type="submit">Versturen</button>
+            </form>
+
+            <div class="contact-details">
+                <h3>Direct contact</h3>
+
+                <div class="contact-item">
+                    <span>📧</span>
+                    <a href="mailto:ron@binneveldadvies.nl">ron@binneveldadvies.nl</a>
+                </div>
+
+                <div class="contact-item">
+                    <span>📞</span>
+                    <a href="tel:+31651921153">06-51921153</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 Binneveld Advies
+</footer>
+
+</body>
+</html>
