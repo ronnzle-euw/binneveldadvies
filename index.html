@@ -642,8 +642,10 @@
         <p>Benieuwd wat ik voor uw organisatie kan betekenen?</p>
 
         <div class="contact-grid">
-			<form action="https://formspree.io/f/mykrrdwq"
-				  method    type="text"
+			<form action="https://formspree.io/f/mykrrdwq" method="POST">
+
+				<input
+					type="text"
 					name="naam"
 					placeholder="Naam"
 					required>
@@ -669,6 +671,11 @@
 					type="hidden"
 					name="_subject"
 					value="Nieuw bericht via binnenveldadvies.nl">
+
+				<input
+					type="hidden"
+					name="_next"
+					value="https://binneveldadvies.nl/bedankt.html">
 
 				<button type="submit">
 					Versturen
