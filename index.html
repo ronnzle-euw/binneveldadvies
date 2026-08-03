@@ -642,13 +642,39 @@
         <p>Benieuwd wat ik voor uw organisatie kan betekenen?</p>
 
         <div class="contact-grid">
-            <form action="mailto:ron@binneveldadvies.nl" method="post" enctype="text/plain">
-                <input type="text" name="naam" placeholder="Naam" required>
-                <input type="email" name="email" placeholder="E-mailadres" required>
-                <input type="text" name="organisatie" placeholder="Organisatie">
-                <textarea name="bericht" rows="6" placeholder="Bericht" required></textarea>
-                <button type="submit">Versturen</button>
-            </form>
+			<form action="https://formspree.io/f/mykrrdwq"
+				  method    type="text"
+					name="naam"
+					placeholder="Naam"
+					required>
+
+				<input
+					type="email"
+					name="email"
+					placeholder="E-mailadres"
+					required>
+
+				<input
+					type="text"
+					name="organisatie"
+					placeholder="Organisatie">
+
+				<textarea
+					name="bericht"
+					rows="6"
+					placeholder="Bericht"
+					required></textarea>
+
+				<input
+					type="hidden"
+					name="_subject"
+					value="Nieuw bericht via binnenveldadvies.nl">
+
+				<button type="submit">
+					Versturen
+				</button>
+
+			</form>
 
             <div class="contact-details">
                 <h3>Direct contact</h3>
