@@ -6,9 +6,9 @@
     <title>Binneveld Advies & Consult | Geo-informatie, GIS en Data</title>
     <meta name="description" content="Zelfstandig Geo/GIS-adviseur. Ron Binneveld ondersteunt gemeenten bij GIS, basisregistraties, geo-architectuur en geo-data.">
 
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -110,21 +110,22 @@
             padding: 15px 0;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+		.logo {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+		}
 
-        .logo img {
-            height: 55px;
-            width: auto;
-        }
+		.logo img {
+			height: 55px;
+			width: auto;
+			margin-top: -12px;
+		}
 
-        .logo span {
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
+		.logo span {
+			font-size: 1.1rem;
+			font-weight: 600;
+		}
 
         .nav-links {
             display: flex;
@@ -247,19 +248,13 @@
             margin-top: 30px;
         }
 
-        .card {
-            background: white;
-            padding: 32px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-            border-left: 4px solid var(--blue-accent);
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(47, 58, 69, 0.12);
-        }
+		.card {
+			background: white;
+			padding: 32px;
+			border-radius: var(--radius);
+			box-shadow: var(--shadow);
+			border-left: 4px solid var(--blue-accent);
+		}
 
         .card-green {
             border-left-color: var(--green-accent);
@@ -285,10 +280,6 @@
             padding: 30px;
             box-shadow: var(--shadow);
             transition: transform 0.25s ease;
-        }
-
-        .usp:hover {
-            transform: translateY(-3px);
         }
 
         .usp h3 {
@@ -332,7 +323,7 @@
             border-color: var(--blue-accent);
             box-shadow: 0 0 0 3px rgba(136, 174, 239, 0.25);
         }
-		
+
         button[type="submit"] {
             background: var(--red-accent);
             color: white;
@@ -450,8 +441,8 @@
 
         <div class="nav-links">
             <a href="#over">Over</a>
-            <a href="#expertise">Expertise</a>
-            <a href="#onderscheid">Waarom ik</a>
+            <a href="#diensten">Diensten</a>
+            <a href="#onderscheid">Meerwaarde</a>
             <a href="#visie">Visie</a>
             <a href="#contact">Contact</a>
         </div>
@@ -529,53 +520,90 @@
     </div>
 </section>
 
-<section id="expertise" class="bg-green">
+<section id="diensten" class="bg-green">
+
     <div class="container">
-        <p class="section-label">Wat ik doe</p>
-        <h2>Expertise</h2>
 
-        <div class="cards">
-            <div class="card card-blue">
-                <h3>GIS-omgevingen</h3>
-                <p>
-                    Ontwikkeling en doorontwikkeling van GIS-viewers,
-                    geo-portalen, functioneel beheer en het ontsluiten van
-                    geo-informatie binnen de organisatie.
-                </p>
-            </div>
+        <p class="section-label">
+            Diensten & Rollen
+        </p>
 
-            <div class="card card-green">
-                <h3>Geo-architectuur</h3>
-                <p>
-                    Inrichting van geo-landschappen met GeoServer en
-                    PostgreSQL/PostGIS, ETL-processen op basis van
-                    OGC-standaarden en API-koppelingen.
-                </p>
-            </div>
+        <h2>Waarvoor kunt u mij inzetten?</h2>
 
-            <div class="card card-red">
-                <h3>Basisregistraties</h3>
-                <p>
-                    Ruime ervaring met geo-basisregistraties en veelgebruikte
-                    registraties binnen de gemeente, waaronder BGT, BAG, BRK,
-                    WOZ, BOR, KLIC en NHR — inclusief de processen die daarbij horen.
-                </p>
-            </div>
+			<p>
+				Ik ondersteun gemeenten en overheidsorganisaties bij vraagstukken op het
+				snijvlak van Geo, GIS, basisregistraties en data. Beschikbaar voor advies,
+				tijdelijke ondersteuning, projectmatige inzet en de doorontwikkeling van
+				geo-informatievoorziening.
+			</p>
 
-            <div class="card card-grey">
-                <h3>Geo &amp; Data</h3>
-                <p>
-                    Integratie van geo-data binnen moderne dataplatformen
-                    als Microsoft Fabric.
-                </p>
-            </div>
-        </div>
+		<div class="cards">
+
+			<div class="card card-blue">
+
+				<h3>Adviseur Geo/GIS</h3>
+
+				<p>
+					Advies over geo-informatievoorziening, GIS-strategie,
+					geo-architectuur en basisregistraties. Ondersteuning bij de
+					ontwikkeling en doorontwikkeling van GIS, waarbij
+					organisatorische behoeften worden vertaald naar praktische en
+					toekomstbestendige oplossingen.
+				</p>
+
+			</div>
+
+			<div class="card card-green">
+
+				<h3>Geo-coördinator</h3>
+
+				<p>
+					Verantwoordelijk voor de samenhang, regie en doorontwikkeling
+					van geo-informatievoorziening. Verbindt gebruikers,
+					beheerders, leveranciers, ICT en management en zorgt voor
+					afstemming tussen geo-data, basisregistraties, GIS-processen
+					en organisatorische doelstellingen.
+				</p>
+
+			</div>
+
+			<div class="card card-red">
+
+				<h3>Functioneel Beheerder GIS</h3>
+
+				<p>
+					Functioneel beheer van GIS-viewers en geo-applicaties,
+					waaronder ruime ervaring met KaartViewer. Focus op
+					gebruikersondersteuning, acceptatietesten,
+					wijzigingsbeheer en het optimaal ontsluiten van
+					geo-informatie binnen de organisatie.
+				</p>
+
+			</div>
+
+			<div class="card card-grey">
+
+				<h3>GIS- en Data-analist</h3>
+
+				<p>
+					Ontwikkeling van informatieproducten op basis van data en
+					geo-data. Van datavoorbereiding en analyses tot dashboards
+					in Power BI en geografische informatieproducten binnen
+					GIS-omgevingen. Gericht op het ondersteunen van beleid,
+					beheer en besluitvorming.
+				</p>
+
+			</div>
+
+		</div>
+
     </div>
+
 </section>
 
 <section id="onderscheid" class="bg-grey">
     <div class="container">
-        <p class="section-label">Mijn aanpak</p>
+        <p class="section-label">Mijn meerwaarde</p>
         <h2>Wat mij onderscheidt</h2>
 
         <div class="usp-grid">
