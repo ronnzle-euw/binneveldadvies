@@ -10,34 +10,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://www.binneveldadvies.nl/">
 	<link rel="stylesheet" href="css/style.css">
-
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-D8BHGJPNF8"></script>
-
-	<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-
-	gtag('config', 'G-D8BHGJPNF8');
-	</script>
 
 </head>
 <body>
 
 <nav>
     <div class="container nav-wrapper">
-        <div class="logo">
-            <img src="images/logo.png" alt="Binneveld Advies logo">
+        <a class="logo" href="index.html">
+            <img src="images/logo.png" alt="">
             <span>Binneveld Advies & Consult</span>
-        </div>
+        </a>
 
-        <button class="menu-toggle" aria-label="Menu openen" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <button class="menu-toggle" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="navigatie">
             ☰
         </button>
 
-        <div class="nav-links">
+        <div class="nav-links" id="navigatie">
             <a href="#over">Over</a>
             <a href="#diensten">Diensten</a>
             <a href="#onderscheid">Meerwaarde</a>
@@ -270,42 +260,44 @@
         <div class="contact-grid">
 			<form action="https://formspree.io/f/mykrrdwq" method="POST">
 
-				<input
-					type="text"
-					name="naam"
-					placeholder="Naam"
-					required>
+				<div class="form-field">
+					<label for="naam">Naam</label>
+					<input id="naam" type="text" name="naam" autocomplete="name" required>
+				</div>
 
-				<input
-					type="email"
-					name="email"
-					placeholder="E-mailadres"
-					required>
+				<div class="form-field">
+					<label for="email">E-mailadres</label>
+					<input id="email" type="email" name="email" autocomplete="email" required>
+				</div>
 
-				<input
-					type="text"
-					name="organisatie"
-					placeholder="Organisatie">
+				<div class="form-field">
+					<label for="organisatie">Organisatie (optioneel)</label>
+					<input id="organisatie" type="text" name="organisatie" autocomplete="organization">
+				</div>
 
-				<textarea
-					name="bericht"
-					rows="6"
-					placeholder="Bericht"
-					required></textarea>
+				<div class="form-field">
+					<label for="bericht">Bericht</label>
+					<textarea id="bericht" name="bericht" rows="6" required></textarea>
+				</div>
 
 				<input
 					type="hidden"
 					name="_subject"
-					value="Nieuw bericht via binnenveldadvies.nl">
+					value="Nieuw bericht via binneveldadvies.nl">
 
 				<input
 					type="hidden"
 					name="_next"
-					value="https://binneveldadvies.nl/bedankt.html">
+					value="https://www.binneveldadvies.nl/bedankt.html">
 
 				<button type="submit">
 					Versturen
 				</button>
+
+				<p class="form-note">
+					Uw gegevens worden alleen gebruikt om contact met u op te nemen.
+					<a href="privacy.html">Privacyverklaring</a>
+				</p>
 
 			</form>
 
@@ -319,7 +311,7 @@
 
 				<div class="contact-item">
 					<span>📞</span>
-					<a href="tel:+31651921153">0651921153</a>
+					<a href="tel:+31651921153">06 5192 1153</a>
 				</div>
 
 				<div class="contact-item">
@@ -337,8 +329,23 @@
 </section>
 
 <footer>
-    © 2026 Binneveld Advies & Consult
+    <p>© 2026 Binneveld Advies & Consult</p>
+    <p><a href="privacy.html">Privacyverklaring</a></p>
 </footer>
+
+<div class="cookie-banner" id="cookie-banner" hidden>
+    <p>
+        Deze site gebruikt Google Analytics om te zien hoe de pagina's worden bezocht.
+        Dat gebeurt alleen met uw toestemming.
+        <a href="privacy.html">Privacyverklaring</a>
+    </p>
+    <div class="cookie-actions">
+        <button type="button" class="cookie-deny" id="cookie-deny">Weigeren</button>
+        <button type="button" class="cookie-accept" id="cookie-accept">Accepteren</button>
+    </div>
+</div>
+
+<script src="js/main.js"></script>
 
 </body>
 </html>

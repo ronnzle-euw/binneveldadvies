@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://binneveldadvies.nl/sitemap.xml
+Sitemap: https://www.binneveldadvies.nl/sitemap.xml
