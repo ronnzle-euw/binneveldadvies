@@ -3,9 +3,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>https://binneveldadvies.nl/</loc>
+        <loc>https://www.binneveldadvies.nl/</loc>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
+    </url>
+
+    <url>
+        <loc>https://www.binneveldadvies.nl/privacy.html</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
     </url>
 
 </urlset>
